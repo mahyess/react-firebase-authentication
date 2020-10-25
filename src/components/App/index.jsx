@@ -14,7 +14,7 @@ import AccountPage from '../Account';
 import AdminPage from '../Admin';
 
 import * as ROUTES from '../../constants/routes';
-import {withAuth} from "../Session";
+import {withAuthentication} from "../Session";
 
 const App = () => {
     return (
@@ -36,4 +36,4 @@ const App = () => {
     );
 }
 
-export default withAuth(App);
+export default withAuthentication(App);

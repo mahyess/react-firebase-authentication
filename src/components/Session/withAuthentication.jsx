@@ -2,8 +2,8 @@ import React, {useEffect, useState} from 'react';
 import AuthUserContext from "./context";
 import {withFirebase} from "../Firebase";
 
-const withAuth = Component => {
-    const WithAuth = ({firebase}) => {
+const withAuthentication = Component => {
+    const WithAuthentication = ({firebase}) => {
         const [authUser, setAuthUser] = useState(null)
 
         useEffect(() => {
@@ -23,7 +23,7 @@ const withAuth = Component => {
             </AuthUserContext.Provider>
         )
     }
-    return withFirebase(WithAuth)
+    return withFirebase(WithAuthentication)
 };
 
-export default withAuth;
+export default withAuthentication;
