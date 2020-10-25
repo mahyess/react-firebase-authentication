@@ -14,27 +14,13 @@ import AccountPage from '../Account';
 import AdminPage from '../Admin';
 
 import * as ROUTES from '../../constants/routes';
-import {withFirebase} from "../Firebase";
+import {withAuth} from "../Session";
 
-const App = ({firebase}) => {
-    const [authUser, setAuthUser] = useState(null)
-
-    useEffect(() => {
-            const listener = firebase.auth.onAuthStateChanged(authUser => {
-                authUser
-                    ? setAuthUser(authUser)
-                    : setAuthUser(null)
-                return () => {
-                    listener()
-                }
-            })
-        }
-    )
-
+const App = () => {
     return (
         <Router>
             <div>
-                <Navigation authUser={authUser}/>
+                <Navigation/>
 
                 <hr/>
 
@@ -50,4 +36,4 @@ const App = ({firebase}) => {
     );
 }
 
-export default withFirebase(App);
+export default withAuth(App);
